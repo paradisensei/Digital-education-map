@@ -10,7 +10,7 @@
 
 ### Contributing
 
-Прежде чем начать, пожалуйста, прочитайте гайд по разработке [CONTRIBUTING.md](https://github.com/paradisensei/Digital-education-map/blob/master/CONTRIBUTING.md). Он далеко не окончательный, будем дорабатывать в процессе.
+Прежде чем начать, пожалуйста, прочитайте гайд по разработке [CONTRIBUTING.md](https://github.com/paradisensei/Digital-education-map/blob/master/.github/CONTRIBUTING.md). Он далеко не окончательный, будем дорабатывать в процессе.
 
 ### License
 
