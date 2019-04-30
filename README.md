@@ -6,7 +6,8 @@
 
 ### Инструкции по запуску
 
-1. Развернуть собранный war файл в любимом веб-сервере
+1. Добавить Yandex MAP key в файл application.properties (Инструкция по получению ключа [тут](https://tech.yandex.ru/maps/doc/jsapi/2.1/quick-start/index-docpage/))
+2. Развернуть собранный war файл в любимом веб-сервере
 
 ### Contributing
 
