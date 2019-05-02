@@ -6,7 +6,8 @@
 
 ### Инструкции по запуску
 
-1. Развернуть собранный war файл в любимом веб-сервере
+1. Создать persistence.properties в папке [resources](https://github.com/paradisensei/Digital-education-map/tree/master/src/main/resources)
+2. Развернуть собранный war файл в любимом веб-сервере
 
 ### Contributing
 
