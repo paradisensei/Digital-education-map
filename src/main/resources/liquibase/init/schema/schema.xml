@@ -1,0 +1,55 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <changeSet author="vda" id="create table address" context="all">
+        <createTable tableName="address">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="addresses_pk"/>
+            </column>
+            <column name="country" type="VARCHAR">
+                <constraints nullable="false"/>
+            </column>
+            <column name="city" type="VARCHAR"/>
+            <column name="address" type="VARCHAR"/>
+            <column name="latitude" type="VARCHAR"/>
+            <column name="longtitude" type="VARCHAR"/>
+            <column name="organization" type="INTEGER"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="vda" id="create table organization_category" context="all">
+        <createTable tableName="organization_category">
+            <column name="organization_id" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="category" type="VARCHAR">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="vda" id="create table contact" context="all">
+        <createTable tableName="contact">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="contact_pk"/>
+            </column>
+            <column name="type" type="VARCHAR"/>
+            <column name="value" type="VARCHAR"/>
+            <column name="organization" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="vda" id="create table organization" context="all">
+        <createTable tableName="organization">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="organization_pk"/>
+            </column>
+            <column name="name" type="VARCHAR"/>
+            <column name="description" type="VARCHAR"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

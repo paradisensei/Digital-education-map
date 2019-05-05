@@ -1,0 +1,7 @@
+contexts=${liquibase.contexts}
+changeLogFile=liquibase.changeLogFile
+driver=
+url=
+username=
+password=
+verbose=true

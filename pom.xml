@@ -13,6 +13,10 @@
         <java.version>11</java.version>
         <spring.version>5.0.8.RELEASE</spring.version>
         <aspectj.version>1.9.1</aspectj.version>
+
+        <!--DB-->
+        <postgresql.version>42.2.5</postgresql.version>
+        <liquibase.version>3.5.3</liquibase.version>
     </properties>
 
     <dependencies>
@@ -94,7 +98,7 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>9.4.1212</version>
+            <version>${postgresql.version}</version>
         </dependency>
 
         <dependency>
@@ -136,6 +140,12 @@
             <version>1.10.19</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-maven-plugin</artifactId>
+            <version>${liquibase.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -150,7 +160,6 @@
                     <testSource>${java.version}</testSource>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
@@ -159,7 +168,42 @@
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>${liquibase.version}</version>
+                <configuration>
+                    <propertyFile>src/main/resources/liquibase.properties</propertyFile>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>update</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
-    
+
+    <profiles>
+        <profile>
+            <id>test-with-data</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <liquibase.contexts>all, test-data</liquibase.contexts>
+                <liquibase.changeLogFile>src/main/resources/liquibase/test.changelog.xml</liquibase.changeLogFile>
+            </properties>
+        </profile>
+        <profile>
+            <id>test-without-data</id>
+            <properties>
+                <liquibase.contexts>all</liquibase.contexts>
+                <liquibase.changeLogFile>src/main/resources/liquibase/test.changelog.xml</liquibase.changeLogFile>
+            </properties>
+        </profile>
+    </profiles>
 </project>
