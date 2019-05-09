@@ -2,4 +2,4 @@
 target/
 
 *.iml
-*.properties
+.properties
