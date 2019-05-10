@@ -1,0 +1,6 @@
+changeLogFile=src/main/resources/liquibase/changelog.xml
+driver=
+url=
+username=
+password=
+verbose=true

@@ -1,0 +1,25 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <changeSet author="vda" id="constraint address_organization_fk" context="all">
+        <addForeignKeyConstraint baseColumnNames="organization" baseTableName="address"
+                                 constraintName="address_organization_fk" deferrable="false"
+                                 initiallyDeferred="false"
+                                 onDelete="CASCADE" onUpdate="RESTRICT" referencedColumnNames="id"
+                                 referencedTableName="organization"/>
+    </changeSet>
+    <changeSet author="vda" id="constraint organization_category_organization_id_fk" context="all">
+        <addForeignKeyConstraint baseColumnNames="organization_id" baseTableName="organization_category"
+                                 constraintName="organization_categories_organization_id_fkey" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="organization"/>
+    </changeSet>
+    <changeSet author="vda" id="constraint contact_organization_fk" context="all">
+        <addForeignKeyConstraint baseColumnNames="organization" baseTableName="contact"
+                                 constraintName="contact_organization_fk" deferrable="false"
+                                 initiallyDeferred="false"
+                                 onDelete="CASCADE" onUpdate="RESTRICT" referencedColumnNames="id"
+                                 referencedTableName="organization"/>
+    </changeSet>
+</databaseChangeLog>
