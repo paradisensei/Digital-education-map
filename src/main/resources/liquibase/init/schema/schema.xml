@@ -4,14 +4,14 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
     <changeSet author="vda" id="create table address" context="all">
         <createTable tableName="address">
-            <column autoIncrement="true" name="id" type="SERIAL">
+            <column name="id" type="INTEGER" defaultValueSequenceNext="address_seq">
                 <constraints primaryKey="true" primaryKeyName="addresses_pk"/>
             </column>
             <column name="city" type="VARCHAR"/>
             <column name="address" type="VARCHAR"/>
             <column name="latitude" type="VARCHAR"/>
-            <column name="longtitude" type="VARCHAR"/>
-            <column name="organization" type="INTEGER"/>
+            <column name="longitude" type="VARCHAR"/>
+            <column name="organization_id" type="INTEGER"/>
         </createTable>
     </changeSet>
 
@@ -28,12 +28,9 @@
 
     <changeSet author="vda" id="create table contact" context="all">
         <createTable tableName="contact">
-            <column autoIncrement="true" name="id" type="SERIAL">
-                <constraints primaryKey="true" primaryKeyName="contact_pk"/>
-            </column>
             <column name="type" type="VARCHAR"/>
             <column name="value" type="VARCHAR"/>
-            <column name="organization" type="INTEGER">
+            <column name="organization_id" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -41,7 +38,7 @@
 
     <changeSet author="vda" id="create table organization" context="all">
         <createTable tableName="organization">
-            <column autoIncrement="true" name="id" type="SERIAL">
+            <column name="id" type="INTEGER" defaultValueSequenceNext="organization_seq">
                 <constraints primaryKey="true" primaryKeyName="organization_pk"/>
             </column>
             <column name="name" type="VARCHAR"/>

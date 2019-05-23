@@ -15,6 +15,10 @@
 1. Настроить параметры driver, url, username, password в src/main/resources/liquibase.properties для БД.
 2. выполнить `mvn liquibase:update -P test-with-data` для развертывания с тестовыми данными, либо `mvn liquibase:update -P test-without-data` развертывания только структуры.
 
+### Запуск тестов
+
+Запуск всех тестов:  `mvn test -P test-with-data`
+
 ### Contributing
 
 Прежде чем начать, пожалуйста, прочитайте гайд по разработке [CONTRIBUTING.md](https://github.com/paradisensei/Digital-education-map/blob/master/.github/CONTRIBUTING.md). Он далеко не окончательный, будем дорабатывать в процессе.
