@@ -29,7 +29,7 @@ insert into organization (id, name, description) values (28, 'Arba Minch Univers
 insert into organization (id, name, description) values (29, 'Wah Medical College', 'in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum');
 insert into organization (id, name, description) values (30, 'University of Texas at Dallas', 'ac lobortis vel dapibus at diam nam tristique tortor eu pede');
 insert into organization (id, name, description) values (31, 'Universidad Adventista de Colombia', 'in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam');
-insert into organization (id, name, description) values (32, 'Arba Minch University', 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat');
+insert into organization (id, name, description) values (32, 'Arba Minch University second', 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat');
 insert into organization (id, name, description) values (33, 'Southern University - New Orleans', 'ut suscipit a feugiat et eros vestibulum ac est lacinia');
 insert into organization (id, name, description) values (34, 'Tongmyung University of Information Technology', 'odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac');
 insert into organization (id, name, description) values (35, 'St. Petersburg State Theatre Arts Academy', 'aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat');
