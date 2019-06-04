@@ -8,7 +8,8 @@
 ### Инструкции по запуску
 
 1. Создать persistence.properties в папке [resources](https://github.com/paradisensei/Digital-education-map/tree/master/src/main/resources)
-2. Развернуть собранный war файл в любимом веб-сервере
+2. Добавить Yandex MAP key в файл application.properties (Инструкция по получению ключа [тут](https://tech.yandex.ru/maps/doc/jsapi/2.1/quick-start/index-docpage/))
+3. Развернуть собранный war файл в любимом веб-сервере
 
 ### Инструкция по развертыванию БД
 
@@ -18,6 +19,7 @@
 ### Запуск тестов
 
 Запуск всех тестов:  `mvn test -P test-with-data`
+
 
 ### Contributing
 
