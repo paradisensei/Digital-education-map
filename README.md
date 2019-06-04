@@ -7,19 +7,15 @@
 
 ### Инструкции по запуску
 
-1. Создать persistence.properties в папке [resources](https://github.com/paradisensei/Digital-education-map/tree/master/src/main/resources)
-2. Добавить Yandex MAP key в файл application.properties (Инструкция по получению ключа [тут](https://tech.yandex.ru/maps/doc/jsapi/2.1/quick-start/index-docpage/))
-3. Развернуть собранный war файл в любимом веб-сервере
+1. Создать persistence.properties в папке [resources](https://github.com/paradisensei/Digital-education-map/tree/master/src/main/resources) по [образцу](https://github.com/paradisensei/Digital-education-map/tree/master/src/main/resources/properties.origin/persistence.properties.origin)
+2. Создать application.properties в папке [resources](https://github.com/paradisensei/Digital-education-map/tree/master/src/main/resources) по [образцу](https://github.com/paradisensei/Digital-education-map/tree/master/src/main/resources/properties.origin/application.properties.origin) ([Инструкция по получению API ключа](https://tech.yandex.ru/maps/doc/jsapi/2.1/quick-start/index-docpage/))
+3. Создать liquibase.properties в папке [resources](https://github.com/paradisensei/Digital-education-map/tree/master/src/main/resources) по [образцу](https://github.com/paradisensei/Digital-education-map/tree/master/src/main/resources/properties.origin/liquibase.properties.origin)
+4. Выполнить команду `mvn liquibase:update -P test-with-data` для развертывания БД с тестовыми данными, либо `mvn liquibase:update -P test-without-data` для развертывания только схемы
+5. Развернуть собранный war файл в любимом веб-сервере
 
-### Инструкция по развертыванию БД
+### Инструкции по запуску тестов
 
-1. Настроить параметры driver, url, username, password в src/main/resources/liquibase.properties для БД.
-2. выполнить `mvn liquibase:update -P test-with-data` для развертывания с тестовыми данными, либо `mvn liquibase:update -P test-without-data` развертывания только структуры.
-
-### Запуск тестов
-
-Запуск всех тестов:  `mvn test -P test-with-data`
-
+Запуск всех тестов: `mvn test -P test-with-data`
 
 ### Contributing
 

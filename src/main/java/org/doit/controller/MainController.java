@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @PropertySource("classpath:application.properties")
 @Controller
 public class MainController {
+
     @Value("${yandex.key}")
     private String yandexKey;
 
