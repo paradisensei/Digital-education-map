@@ -1,13 +1,8 @@
 package org.doit;
 
-import org.doit.model.Address;
-import org.doit.model.ContactType;
-import org.doit.model.Organization;
-import org.doit.model.OrganizationCategory;
+import org.doit.model.*;
 
-import java.util.EnumMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class OrganizationTestData {
     public static final Long ORGANIZATION_1_ID = 14L;
@@ -26,7 +21,7 @@ public class OrganizationTestData {
     public static final Organization ORGANIZATION_1 = new Organization(ORGANIZATION_1_ID,
             "Tamil Nadu Dr. M.G.R. Medical University",
             "pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat",
-            List.of(OrganizationCategory.BUSINESS, OrganizationCategory.PARENT, OrganizationCategory.TEACHER),
+            Set.of(OrganizationCategory.BUSINESS, OrganizationCategory.PARENT, OrganizationCategory.TEACHER),
             CONTACTS_ORGANIZATION_1,
             List.of(ADDRESS_1_ORGANIZATION_1, ADDRESS_2_ORGANIZATION_1)
     );
@@ -39,5 +34,4 @@ public class OrganizationTestData {
         newOrganization.addAddress(address);
         return newOrganization;
     }
-
 }
