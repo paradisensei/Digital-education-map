@@ -13,6 +13,7 @@
         <java.version>11</java.version>
         <spring.version>5.0.8.RELEASE</spring.version>
         <aspectj.version>1.9.1</aspectj.version>
+        <lombok.version>1.18.8</lombok.version>
 
         <!--DB-->
         <postgresql.version>42.2.5</postgresql.version>
@@ -117,6 +118,13 @@
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
             <version>${aspectj.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- Testing -->
