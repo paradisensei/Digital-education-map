@@ -1,9 +1,16 @@
-# Карта цифрового образования России
+﻿﻿﻿﻿﻿﻿# Карта цифрового образования России
 
 Онлайн-платформа, отражающая актуальные сведения обо всем цифровом образовании России в виде карты с отмеченными на ней образовательными организациями.
 > Проект разрабатывается силами сообщества [образовательного YouTube канала](https://www.youtube.com/channel/UCwMl9L2VNAR0upPrkhAo_Ig)  
 > [Здесь](https://paradise152771.typeform.com/to/uYkrq6) немного подробнее о том, как появилась эта идея  
 > Вся коммуникация по проекту в [slack](https://join.slack.com/t/doit-dt59172/shared_invite/enQtNjIwMjIxMDEyMDA1LTBiN2UyZjkyZDQyZmU3M2U1ZWJhODhkMmZhYWU2MGFjMDQ5NGU0NWI4ZGNjNzE0MWQ2ZTUyMWIzMjEzYjAxZTA)
+
+### Lombok
+Lombok - это инструмент, который позволяет писать код на java более лаконично и избавляет от boilerplate кода.  
+Подробнее [здесь eng](https://www.baeldung.com/intro-to-project-lombok) или [здесь ru](https://habr.com/ru/post/438870/).
+В проекте используем аннотации над классом:    
+- @Data - позволяет не писать стандартные getter/setter;    
+- @NoArgsConstructor, @AllArgsConstructor - конструктор без параметров и конструктор со всеми полями в качестве параметров.
 
 ### Инструкции по запуску
 
