@@ -61,6 +61,6 @@ public class OrganizationServiceTest {
 
     @Test
     void getAll() {
-        assertEquals(100, service.getAll().size());
+        assertEquals(101, service.getAll().size());
     }
 }
