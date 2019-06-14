@@ -14,4 +14,10 @@
     <changeSet author="vda" id="data:contact" context="test-data">
         <sqlFile path="src/main/resources/liquibase/data/contact.sql" splitStatements="true"/>
     </changeSet>
+    <changeSet author="vda" id="data:users" context="test-data">
+        <sqlFile path="src/main/resources/liquibase/data/users.sql" splitStatements="true"/>
+    </changeSet>
+    <changeSet author="vda" id="data:user_roles" context="test-data">
+        <sqlFile path="src/main/resources/liquibase/data/user_roles.sql" splitStatements="true"/>
+    </changeSet>
 </databaseChangeLog>
