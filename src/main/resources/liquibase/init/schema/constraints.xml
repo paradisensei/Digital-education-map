@@ -25,9 +25,24 @@
                                  referencedTableName="organization"/>
     </changeSet>
 
-    <changeSet author="vda" id="constraint unique_name" context="all">
+    <changeSet author="vda" id="constraint organization unique_name" context="all">
         <addUniqueConstraint columnNames="name"
-                             constraintName="unique_name"
+                             constraintName="organization_unique_name"
                              tableName="organization"/>
     </changeSet>
+
+    <changeSet author="vda" id="constraint user_roles unique_user_id_role" context="all">
+        <addUniqueConstraint columnNames="user_id, role"
+                             constraintName="unique_user_id_role"
+                             tableName="user_roles"/>
+    </changeSet>
+
+    <changeSet author="vda" id="constraint role_username_fk" context="all">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="user_roles"
+                                 constraintName="roles_users_fk" deferrable="false"
+                                 initiallyDeferred="false"
+                                 onDelete="CASCADE" referencedColumnNames="id"
+                                 referencedTableName="users"/>
+    </changeSet>
+
 </databaseChangeLog>

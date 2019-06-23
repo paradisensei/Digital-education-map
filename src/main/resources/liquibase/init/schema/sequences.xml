@@ -9,6 +9,9 @@
         <createSequence sequenceName="organization_seq"
                         incrementBy="1"
                         startValue="1000"/>
+        <createSequence sequenceName="users_seq"
+                        incrementBy="1"
+                        startValue="1000"/>
     </changeSet>
 
 </databaseChangeLog>

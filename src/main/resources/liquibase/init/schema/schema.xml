@@ -46,4 +46,23 @@
         </createTable>
     </changeSet>
 
+    <changeSet author="vda" id="create table users" context="all">
+        <createTable tableName="users">
+            <column name="id" type="INTEGER" defaultValueSequenceNext="users_seq">
+                <constraints primaryKey="true" primaryKeyName="user_pk"/>
+            </column>
+            <column name="name" type="VARCHAR"/>
+            <column name="email" type="VARCHAR"/>
+            <column name="password" type="VARCHAR"/>
+            <column name="enabled" type="boolean" defaultValue="true"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="vda" id="create table user_roles" context="all">
+        <createTable tableName="user_roles">
+            <column name="user_id" type="INTEGER"/>
+            <column name="role" type="VARCHAR"/>
+        </createTable>
+    </changeSet>
+
 </databaseChangeLog>

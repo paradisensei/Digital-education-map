@@ -41,6 +41,10 @@ public class Organization {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "organization", orphanRemoval = true)
     private List<Address> addresses = new ArrayList<>();
 
+    public Organization(String name, String description) {
+        this(null, name, description, List.of(), Map.of());
+    }
+
     public Organization(String name, String description, Collection<OrganizationCategory> categories, Map<ContactType, String> contacts) {
         this.name = name;
         this.description = description;
@@ -48,7 +52,7 @@ public class Organization {
         setContacts(contacts);
     }
 
-    public Organization(Long id, String name, String description, Collection<OrganizationCategory> categories, Map<ContactType, String> contacts) {
+    private Organization(Long id, String name, String description, Collection<OrganizationCategory> categories, Map<ContactType, String> contacts) {
         this.id = id;
         this.name = name;
         this.description = description;
