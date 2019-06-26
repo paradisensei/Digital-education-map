@@ -32,12 +32,12 @@ public class AdminController {
     @GetMapping("/login")
     public String loginPage(@RequestParam(value = "error", required = false) String error,
                             Model model) {
-        String errorMessge = null;
+        String errorMessage = null;
         if (error != null) {
-            errorMessge = "Username or Password is incorrect !!";
+            errorMessage = "Username or Password is incorrect !!";
         }
-        model.addAttribute("errorMessge", errorMessge);
-        return "login";
+        model.addAttribute("errorMessage", errorMessage);
+        return "/login";
     }
 
     @GetMapping("/organizations")

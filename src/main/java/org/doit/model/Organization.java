@@ -53,18 +53,12 @@ public class Organization {
     }
 
     private Organization(Long id, String name, String description, Collection<OrganizationCategory> categories, Map<ContactType, String> contacts) {
+        this(name, description, categories, contacts);
         this.id = id;
-        this.name = name;
-        this.description = description;
-        setCategories(categories);
-        setContacts(contacts);
     }
 
     public Organization(String name, String description, Collection<OrganizationCategory> categories, Map<ContactType, String> contacts, List<Address> addresses) {
-        this.name = name;
-        this.description = description;
-        setCategories(categories);
-        setContacts(contacts);
+        this(name, description, categories, contacts);
         this.addresses = addresses;
     }
 

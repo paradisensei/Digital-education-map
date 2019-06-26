@@ -35,10 +35,7 @@ public class Address {
     }
 
     public Address(String city, String address, Double latitude, Double longitude, Organization organization) {
-        this.city = city;
-        this.address = address;
-        this.latitude = latitude;
-        this.longitude = longitude;
+        this(city, address, latitude, longitude);
         this.organization = organization;
     }
 }

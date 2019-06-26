@@ -14,11 +14,10 @@
     </form>
 </#macro>
 
-<#if errorMessge??>
+<#if errorMessage??>
     <div style="color:red;font-style:italic;">
-        ${errorMessge}
+        ${errorMessage}
     </div>
 </#if>
 
 <@main title="Login"/>
-

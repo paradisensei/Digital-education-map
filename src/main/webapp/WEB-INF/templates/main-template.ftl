@@ -3,27 +3,27 @@
     <!DOCTYPE html>
     <html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=<${yandexKey}>&lang=ru_RU"
-            type="text/javascript">
-    </script>
-    <script src="resources/js/main.js" type="text/javascript"></script>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://api-maps.yandex.ru/2.1/?apikey=<${yandexKey}>&lang=ru_RU"
+                type="text/javascript">
+        </script>
+        <script src="/resources/js/main.js" type="text/javascript"></script>
 
-    <title>${title}</title>
-</head>
+        <title>${title}</title>
+    </head>
 
-<body>
-<nav>
-    <a href="/">home</a>
-    <a href="/admin">admin</a>
-    <@security.authorize access="isAuthenticated()">
-        <a href="/logout">logout</a>
-    </@security.authorize>
-</nav>
-<@content/>
+    <body>
+        <nav>
+            <a href="/">home</a>
+            <a href="/admin">admin</a>
+            <@security.authorize access="isAuthenticated()">
+                <a href="/logout">logout</a>
+            </@security.authorize>
+        </nav>
 
-</body>
+        <@content/>
+    </body>
 </#macro>
