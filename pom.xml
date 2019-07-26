@@ -18,6 +18,10 @@
         <!--DB-->
         <postgresql.version>42.2.5</postgresql.version>
         <liquibase.version>3.5.3</liquibase.version>
+
+        <!-- webjars -->
+        <jquery.version>3.3.1-2</jquery.version>
+        <webjars-locator.version>0.36</webjars-locator.version>
     </properties>
 
     <dependencies>
@@ -131,6 +135,25 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.9</version>
+        </dependency>
+
+        <!-- webjars -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>${jquery.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>webjars-locator</artifactId>
+            <version>${webjars-locator.version}</version>
         </dependency>
 
         <!-- Testing -->
