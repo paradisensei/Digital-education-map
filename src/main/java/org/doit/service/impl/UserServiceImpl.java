@@ -1,4 +1,4 @@
-package org.doit.service;
+package org.doit.service.impl;
 
 import org.doit.model.User;
 import org.doit.repository.UserRepository;

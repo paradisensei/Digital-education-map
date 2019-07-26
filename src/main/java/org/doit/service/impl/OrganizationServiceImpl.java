@@ -41,4 +41,9 @@ public class OrganizationServiceImpl implements OrganizationService {
     public List<Organization> getAll() {
         return repository.findAll();
     }
+
+    @Override
+    public List<Organization> getAllWithAddressesAndContacts() {
+        return repository.findAllWithAddressesAndContacts();
+    }
 }

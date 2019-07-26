@@ -13,4 +13,6 @@ public interface OrganizationService {
     Organization get(Long id);
 
     List<Organization> getAll();
+
+    List<Organization> getAllWithAddressesAndContacts();
 }

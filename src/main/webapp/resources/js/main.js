@@ -1,14 +1,27 @@
 ymaps.ready(init);
-function init(){
+
+function init() {
     var myMap = new ymaps.Map("map", {
-        center: [59.94, 30.32],
-        zoom: 7
-    });
+            center: [59.94, 30.32],
+            zoom: 3
+        }),
+        objectManager = new ymaps.ObjectManager({
+            // Чтобы метки начали кластеризоваться, выставляем опцию.
+            clusterize: true,
+            // ObjectManager принимает те же опции, что и кластеризатор.
+            gridSize: 32,
+            clusterDisableClickZoom: true
+        });
 
-    var placemark = new ymaps.Placemark([59.97, 30.31], {
-        hintContent: '<div class "map__hint">ул. Литераторов. д.19</div>',
-        ballonContent: 'Это балун'
-    });
+    // Чтобы задать опции одиночным объектам и кластерам,
+    // обратимся к дочерним коллекциям ObjectManager.
+    objectManager.objects.options.set('preset', 'islands#greenDotIcon');
+    objectManager.clusters.options.set('preset', 'islands#greenClusterIcons');
+    myMap.geoObjects.add(objectManager);
 
-    myMap.geoObjects.add(placemark);
+    $.ajax({
+        url: "/rest/organizations"
+    }).done(function (data) {
+        objectManager.add(data);
+    });
 }
