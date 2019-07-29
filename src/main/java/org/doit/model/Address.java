@@ -22,7 +22,7 @@ public class Address {
     @Id
     @SequenceGenerator(name = "address_gen", sequenceName = "address_seq", allocationSize = 1, initialValue = 1000)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "address_gen")
-    private Long id;
+    private long id;
 
     private String city;
 

@@ -28,12 +28,12 @@ public class OrganizationServiceImpl implements OrganizationService {
 
     @Override
     @Transactional
-    public void delete(Long id) {
+    public void delete(long id) {
         repository.deleteById(id);
     }
 
     @Override
-    public Organization get(Long id) {
+    public Organization get(long id) {
         return repository.findById(id).orElse(null);
     }
 

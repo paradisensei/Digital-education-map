@@ -6,8 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@PropertySource("classpath:application.properties")
 @Controller
+@PropertySource("classpath:application.properties")
 public class MainController {
 
     @Value("${yandex.key}")
@@ -15,8 +15,7 @@ public class MainController {
 
     @GetMapping("/")
     public String home(Model model) {
-        model.addAttribute("msg", "Digital education map");
         model.addAttribute("yandexKey", yandexKey);
-        return "/index";
+        return "/map/index";
     }
 }

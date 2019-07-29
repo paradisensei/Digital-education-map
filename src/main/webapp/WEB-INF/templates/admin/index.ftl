@@ -1,4 +1,5 @@
 <#include "admin-template.ftl"/>
+
 <#macro content>
     <form id="form" method="post" action="/admin/organizations">
         <label for="name">name</label><input type="text" name="name" id="name" value=""/>

@@ -1,4 +1,5 @@
 <#include "admin-template.ftl"/>
+
 <#macro content>
     <h1>Log in</h1>
     <form role="form" action="/admin/login" method="post">

@@ -25,8 +25,9 @@ public class AdminController {
     }
 
     @GetMapping
-    public String adminPage() {
-        return ADMIN_URL;
+    public String adminPage(Model model) {
+        model.addAttribute("organizations", organizationService.getAll());
+        return ADMIN_URL + "/index";
     }
 
     @GetMapping("/login")
@@ -37,18 +38,12 @@ public class AdminController {
             errorMessage = "Username or Password is incorrect !!";
         }
         model.addAttribute("errorMessage", errorMessage);
-        return "/login";
-    }
-
-    @GetMapping("/organizations")
-    public String organizationsPage(Model model) {
-        model.addAttribute("organizations", organizationService.getAll());
-        return ADMIN_URL;
+        return "/admin/login";
     }
 
     @PostMapping(value = "/organizations", produces = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public String create(@RequestParam String name, @RequestParam String description) {
         organizationService.create(new Organization(name, description));
-        return "redirect:/admin/organizations";
+        return "redirect:" + ADMIN_URL;
     }
 }

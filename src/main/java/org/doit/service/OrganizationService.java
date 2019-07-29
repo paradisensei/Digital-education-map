@@ -8,9 +8,9 @@ public interface OrganizationService {
 
     Organization create(Organization organization);
 
-    void delete(Long id) throws RuntimeException;
+    void delete(long id) throws RuntimeException;
 
-    Organization get(Long id);
+    Organization get(long id);
 
     List<Organization> getAll();
 

@@ -1,17 +1,22 @@
 package org.doit.service;
 
-import org.doit.config.*;
+import org.doit.config.CoreConfig;
+import org.doit.config.PersistenceConfig;
 import org.doit.model.Organization;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.*;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.jdbc.*;
+import org.springframework.test.context.jdbc.Sql;
+import org.springframework.test.context.jdbc.SqlConfig;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.doit.OrganizationTestData.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = {CoreConfig.class, PersistenceConfig.class})
@@ -31,7 +36,7 @@ public class OrganizationServiceTest {
 
     @Test
     void createDuplicateName() {
-        Organization duplicateOrganization = new Organization(ORGANIZATION_1.getName(), ORGANIZATION_1.getDescription(), ORGANIZATION_1.getCategories(), ORGANIZATION_1.getContacts());
+        Organization duplicateOrganization = new Organization(ORGANIZATION_1);
         assertThrows(DataAccessException.class, () -> service.create(duplicateOrganization));
     }
 
@@ -61,6 +66,6 @@ public class OrganizationServiceTest {
 
     @Test
     void getAll() {
-        assertEquals(100, service.getAll().size());
+        assertEquals(101, service.getAll().size());
     }
 }

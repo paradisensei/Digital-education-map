@@ -62,7 +62,7 @@ public class MapObject {
     @Data
     private class Feature {
 
-        private Long id;
+        private long id;
 
         private String type = "future";
 
@@ -70,7 +70,7 @@ public class MapObject {
 
         private Map<String, String> properties;
 
-        Feature(Long id, Geometry geometry, Map<String, String> properties) {
+        Feature(long id, Geometry geometry, Map<String, String> properties) {
             this.id = id;
             this.geometry = geometry;
             this.properties = properties;

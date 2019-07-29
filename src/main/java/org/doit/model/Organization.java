@@ -24,7 +24,7 @@ public class Organization {
     @Id
     @SequenceGenerator(name = "organization_gen", sequenceName = "organization_seq", allocationSize = 1, initialValue = 1000)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "organization_gen")
-    private Long id;
+    private long id;
 
     private String name;
 
@@ -49,7 +49,7 @@ public class Organization {
     private List<Address> addresses = new ArrayList<>();
 
     public Organization(String name, String description) {
-        this(null, name, description, List.of(), Map.of());
+        this(name, description, List.of(), Map.of());
     }
 
     public Organization(String name, String description, Collection<OrganizationCategory> categories, Map<ContactType, String> contacts) {
@@ -59,14 +59,12 @@ public class Organization {
         setContacts(contacts);
     }
 
-    private Organization(Long id, String name, String description, Collection<OrganizationCategory> categories, Map<ContactType, String> contacts) {
-        this(name, description, categories, contacts);
-        this.id = id;
-    }
-
-    public Organization(String name, String description, Collection<OrganizationCategory> categories, Map<ContactType, String> contacts, List<Address> addresses) {
-        this(name, description, categories, contacts);
-        this.addresses = addresses;
+    public Organization(Organization o) {
+        this.name = o.getName();
+        this.description = o.getDescription();
+        this.categories = o.getCategories();
+        this.contacts = o.getContacts();
+        this.addresses = o .getAddresses();
     }
 
     private void setCategories(Collection<OrganizationCategory> categories) {
@@ -75,5 +73,14 @@ public class Organization {
 
     public void addAddress(Address address) {
         this.addresses.add(address);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Organization)) return false;
+
+        return getId() == ((Organization) o).getId();
+
     }
 }

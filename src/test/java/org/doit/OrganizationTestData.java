@@ -1,18 +1,24 @@
 package org.doit;
 
-import org.doit.model.*;
+import org.doit.model.Address;
+import org.doit.model.ContactType;
+import org.doit.model.Organization;
+import org.doit.model.OrganizationCategory;
 
-import java.util.*;
+import java.util.EnumMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class OrganizationTestData {
-    public static final Long ORGANIZATION_1_ID = 14L;
-    public static final Long ORGANIZATION_DELETE_ID = 1000L;
+    public static final long ORGANIZATION_1_ID = 14L;
+    public static final long ORGANIZATION_DELETE_ID = 1000L;
 
     private static final Map<ContactType, String> CONTACTS_ORGANIZATION_1 = new EnumMap<>(ContactType.class);
     private static final Address ADDRESS_1_ORGANIZATION_1 = new Address("Chadan", "7565 Golden Leaf Terrace", 18.9494246, 72.8305922);
     private static final Address ADDRESS_2_ORGANIZATION_1 = new Address("Cincinnati", "2456 Buena Vista Road", 39.0745039, -84.33211);
 
-    public static final Long ID_NOT_FOUND = 200L;
+    public static final long ID_NOT_FOUND = 200L;
 
     static {
         CONTACTS_ORGANIZATION_1.put(ContactType.URL, "https://sfgate.com");
