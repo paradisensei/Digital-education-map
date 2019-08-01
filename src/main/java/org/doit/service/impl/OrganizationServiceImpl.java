@@ -4,6 +4,7 @@ import org.doit.model.Organization;
 import org.doit.repository.OrganizationRepository;
 import org.doit.service.OrganizationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,7 +23,7 @@ public class OrganizationServiceImpl implements OrganizationService {
 
     @Override
     @Transactional
-    public Organization create(Organization organization) {
+    public Organization createOrUpdate(Organization organization) {
         return repository.save(organization);
     }
 
