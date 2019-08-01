@@ -2,7 +2,7 @@
 
 <#macro main title scripts=[] styles=[]>
     <!DOCTYPE html>
-    <html lang="en">
+    <html lang="ru">
 
     <head>
         <meta charset="utf-8">
@@ -12,16 +12,51 @@
 
         <title>${title}</title>
 
+        <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css">
         <#list styles as style>
             <link rel="stylesheet" type="text/css" href="${style}">
         </#list>
     </head>
 
-    <body>
-        <@content/>
+    <body class="h-100">
+        <header>
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                <a class="navbar-brand" href="/">
+                    <img src="/resources/favicon.ico" width="30" height="30" class="d-inline-block align-top" alt="">
+                    Digital Education Map
+                </a>
+                <ul class="navbar-nav mr-auto">
+                    <@security.authorize access="isAuthenticated()">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/">Организации</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">Выход</a>
+                        </li>
+                    </@security.authorize>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="место для">
+                    <input class="form-control mr-sm-2" type="text" placeholder="элементов фильтрации">
+                    <button class="btn btn-outline-success my-2 my-sm-0 disabled" type="submit" disabled>фильтровать</button>
+                </form>
+            </nav>
+        </header>
+        <main role="main" class="h-100">
+                <@content/>
+        </main>
+
+        <footer class="footer fixed-bottom mt-auto py-1 bg-dark">
+            <div class="container-fluid">
+                <span class="text-muted">&copy digital-education-map</span>
+            </div>
+        </footer>
 
         <!-- jQuery -->
         <script type="application/javascript" src="/webjars/jquery/jquery.min.js"></script>
+
+        <!-- Bootsrap -->
+        <script type="application/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 
         <#list scripts as script>
             <script type="application/javascript" src="${script}"></script>

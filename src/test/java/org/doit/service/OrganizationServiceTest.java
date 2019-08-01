@@ -29,7 +29,7 @@ public class OrganizationServiceTest {
     @Test
     void create() {
         Organization newOrganization = getNewOrganization();
-        Organization actual = service.create(newOrganization);
+        Organization actual = service.createOrUpdate(newOrganization);
         newOrganization.setId(actual.getId());
         assertEquals(newOrganization, actual);
     }
@@ -37,7 +37,7 @@ public class OrganizationServiceTest {
     @Test
     void createDuplicateName() {
         Organization duplicateOrganization = new Organization(ORGANIZATION_1);
-        assertThrows(DataAccessException.class, () -> service.create(duplicateOrganization));
+        assertThrows(DataAccessException.class, () -> service.createOrUpdate(duplicateOrganization));
     }
 
     @Test

@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface OrganizationService {
 
-    Organization create(Organization organization);
+    Organization createOrUpdate(Organization organization);
 
     void delete(long id) throws RuntimeException;
 

@@ -1,5 +1,6 @@
 package org.doit.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -43,10 +44,17 @@ public class Organization {
     @MapKeyClass(ContactType.class)
     @MapKeyEnumerated(EnumType.STRING)
     @Column(name = "value")
+    @JsonIgnore
     private Map<ContactType, String> contacts;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "organization", orphanRemoval = true)
+    @JsonIgnore
     private List<Address> addresses = new ArrayList<>();
+
+    public Organization(long id, String name, String description) {
+        this(name, description);
+        this.id = id;
+    }
 
     public Organization(String name, String description) {
         this(name, description, List.of(), Map.of());
