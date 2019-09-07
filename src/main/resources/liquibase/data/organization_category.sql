@@ -1,7 +1,7 @@
 insert into organization_category (organization_id, category) values (23, 'PARENT');
 insert into organization_category (organization_id, category) values (98, 'BUSINESS');
 insert into organization_category (organization_id, category) values (96, 'BUSINESS');
-insert into organization_category (organization_id, category) values (55, 'TEACHER');
+insert into organization_category (organization_id, category) values (55, 'PARENT');
 insert into organization_category (organization_id, category) values (37, 'BUSINESS');
 insert into organization_category (organization_id, category) values (83, 'TEACHER');
 insert into organization_category (organization_id, category) values (26, 'BUSINESS');
@@ -11,10 +11,10 @@ insert into organization_category (organization_id, category) values (94, 'BUSIN
 insert into organization_category (organization_id, category) values (91, 'TEACHER');
 insert into organization_category (organization_id, category) values (58, 'TEACHER');
 insert into organization_category (organization_id, category) values (71, 'BUSINESS');
-insert into organization_category (organization_id, category) values (81, 'BUSINESS');
+insert into organization_category (organization_id, category) values (81, 'PARENT');
 insert into organization_category (organization_id, category) values (39, 'TEACHER');
 insert into organization_category (organization_id, category) values (68, 'TEACHER');
-insert into organization_category (organization_id, category) values (65, 'BUSINESS');
+insert into organization_category (organization_id, category) values (65, 'TEACHER');
 insert into organization_category (organization_id, category) values (59, 'TEACHER');
 insert into organization_category (organization_id, category) values (52, 'TEACHER');
 insert into organization_category (organization_id, category) values (65, 'PARENT');
@@ -30,7 +30,7 @@ insert into organization_category (organization_id, category) values (14, 'BUSIN
 insert into organization_category (organization_id, category) values (60, 'PARENT');
 insert into organization_category (organization_id, category) values (63, 'BUSINESS');
 insert into organization_category (organization_id, category) values (7, 'PARENT');
-insert into organization_category (organization_id, category) values (30, 'TEACHER');
+insert into organization_category (organization_id, category) values (30, 'BUSINESS');
 insert into organization_category (organization_id, category) values (17, 'PARENT');
 insert into organization_category (organization_id, category) values (17, 'BUSINESS');
 insert into organization_category (organization_id, category) values (81, 'TEACHER');
@@ -39,7 +39,7 @@ insert into organization_category (organization_id, category) values (46, 'TEACH
 insert into organization_category (organization_id, category) values (22, 'TEACHER');
 insert into organization_category (organization_id, category) values (55, 'BUSINESS');
 insert into organization_category (organization_id, category) values (52, 'BUSINESS');
-insert into organization_category (organization_id, category) values (55, 'PARENT');
+insert into organization_category (organization_id, category) values (48, 'PARENT');
 insert into organization_category (organization_id, category) values (22, 'PARENT');
 insert into organization_category (organization_id, category) values (26, 'TEACHER');
 insert into organization_category (organization_id, category) values (92, 'TEACHER');
@@ -59,11 +59,11 @@ insert into organization_category (organization_id, category) values (14, 'TEACH
 insert into organization_category (organization_id, category) values (40, 'PARENT');
 insert into organization_category (organization_id, category) values (70, 'BUSINESS');
 insert into organization_category (organization_id, category) values (82, 'TEACHER');
-insert into organization_category (organization_id, category) values (58, 'TEACHER');
+insert into organization_category (organization_id, category) values (58, 'BUSINESS');
 insert into organization_category (organization_id, category) values (89, 'PARENT');
 insert into organization_category (organization_id, category) values (40, 'TEACHER');
 insert into organization_category (organization_id, category) values (65, 'BUSINESS');
-insert into organization_category (organization_id, category) values (68, 'BUSINESS');
+insert into organization_category (organization_id, category) values (68, 'PARENT');
 insert into organization_category (organization_id, category) values (82, 'BUSINESS');
 insert into organization_category (organization_id, category) values (12, 'TEACHER');
 insert into organization_category (organization_id, category) values (32, 'PARENT');
@@ -75,7 +75,7 @@ insert into organization_category (organization_id, category) values (68, 'TEACH
 insert into organization_category (organization_id, category) values (4, 'PARENT');
 insert into organization_category (organization_id, category) values (70, 'PARENT');
 insert into organization_category (organization_id, category) values (2, 'PARENT');
-insert into organization_category (organization_id, category) values (64, 'PARENT');
+insert into organization_category (organization_id, category) values (64, 'BUSINESS');
 insert into organization_category (organization_id, category) values (57, 'PARENT');
 insert into organization_category (organization_id, category) values (100, 'BUSINESS');
 insert into organization_category (organization_id, category) values (23, 'TEACHER');
@@ -112,9 +112,9 @@ insert into organization_category (organization_id, category) values (51, 'TEACH
 insert into organization_category (organization_id, category) values (74, 'PARENT');
 insert into organization_category (organization_id, category) values (36, 'TEACHER');
 insert into organization_category (organization_id, category) values (86, 'TEACHER');
-insert into organization_category (organization_id, category) values (12, 'TEACHER');
+insert into organization_category (organization_id, category) values (12, 'BUSINESS');
 insert into organization_category (organization_id, category) values (90, 'TEACHER');
 insert into organization_category (organization_id, category) values (29, 'PARENT');
 insert into organization_category (organization_id, category) values (49, 'BUSINESS');
-insert into organization_category (organization_id, category) values (94, 'BUSINESS');
-insert into organization_category (organization_id, category) values (36, 'TEACHER');
+insert into organization_category (organization_id, category) values (94, 'TEACHER');
+insert into organization_category (organization_id, category) values (36, 'BUSINESS');

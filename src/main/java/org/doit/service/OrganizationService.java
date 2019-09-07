@@ -14,5 +14,4 @@ public interface OrganizationService {
 
     List<Organization> getAll();
 
-    List<Organization> getAllWithAddressesAndContacts();
 }

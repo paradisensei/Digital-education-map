@@ -5,7 +5,7 @@
     <changeSet author="vda" id="create table address" context="all">
         <createTable tableName="address">
             <column name="id" type="INTEGER" defaultValueSequenceNext="address_seq">
-                <constraints primaryKey="true" primaryKeyName="addresses_pk"/>
+                <constraints primaryKey="true" primaryKeyName="address_pk"/>
             </column>
             <column name="city" type="VARCHAR"/>
             <column name="address" type="VARCHAR"/>
@@ -28,11 +28,12 @@
 
     <changeSet author="vda" id="create table contact" context="all">
         <createTable tableName="contact">
+            <column name="id" type="INTEGER" defaultValueSequenceNext="contact_seq">
+                <constraints primaryKey="true" primaryKeyName="contact_pk"/>
+            </column>
             <column name="type" type="VARCHAR"/>
             <column name="value" type="VARCHAR"/>
-            <column name="organization_id" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
+            <column name="organization_id" type="INTEGER"/>
         </createTable>
     </changeSet>
 

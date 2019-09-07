@@ -1,10 +1,11 @@
 package org.doit.controller;
 
+import org.doit.model.ContactType;
 import org.doit.model.Organization;
+import org.doit.model.OrganizationCategory;
 import org.doit.service.OrganizationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
+
+import java.util.List;
 
 @Controller
 @RequestMapping(AdminController.ADMIN_URL)
@@ -31,6 +34,8 @@ public class AdminController {
     @GetMapping
     public String adminPage(Model model) {
         model.addAttribute("organizations", organizationService.getAll());
+        model.addAttribute("categories", OrganizationCategory.values());
+        model.addAttribute("contactTypes", List.of(ContactType.values()));
         return ADMIN_URL + "/index";
     }
 
@@ -44,9 +49,9 @@ public class AdminController {
         return ADMIN_URL + "/login";
     }
 
-    @PostMapping(value = "/organizations", produces = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    public String create(@RequestParam long id, @RequestParam String name, @RequestParam String description) {
-        organizationService.createOrUpdate(new Organization(id, name, description));
+    @PostMapping(value = "/organizations")
+    public String create(Organization organization) {
+        organizationService.createOrUpdate(organization);
         return "redirect:" + ADMIN_URL;
     }
 

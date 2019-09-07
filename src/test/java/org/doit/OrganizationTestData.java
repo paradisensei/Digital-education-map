@@ -1,10 +1,12 @@
 package org.doit;
 
 import org.doit.model.Address;
+import org.doit.model.Contact;
 import org.doit.model.ContactType;
 import org.doit.model.Organization;
 import org.doit.model.OrganizationCategory;
 
+import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
@@ -14,14 +16,17 @@ public class OrganizationTestData {
     public static final long ORGANIZATION_1_ID = 14L;
     public static final long ORGANIZATION_DELETE_ID = 1000L;
 
-    private static final Map<ContactType, String> CONTACTS_ORGANIZATION_1 = new EnumMap<>(ContactType.class);
-    private static final Address ADDRESS_1_ORGANIZATION_1 = new Address("Chadan", "7565 Golden Leaf Terrace", 18.9494246, 72.8305922);
-    private static final Address ADDRESS_2_ORGANIZATION_1 = new Address("Cincinnati", "2456 Buena Vista Road", 39.0745039, -84.33211);
+    private static final List<Contact> CONTACTS_ORGANIZATION_1 = new ArrayList<>();
+
+    private static final Address ADDRESS_1_ORGANIZATION_1;
+    private static final Address ADDRESS_2_ORGANIZATION_1;
 
     public static final long ID_NOT_FOUND = 200L;
 
     static {
-        CONTACTS_ORGANIZATION_1.put(ContactType.URL, "https://sfgate.com");
+        CONTACTS_ORGANIZATION_1.add(new Contact(ContactType.URL, "https://sfgate.com"));
+        ADDRESS_1_ORGANIZATION_1 = new Address("Chadan", "7565 Golden Leaf Terrace", 18.9494246, 72.8305922);
+        ADDRESS_2_ORGANIZATION_1 = new Address("Cincinnati", "2456 Buena Vista Road", 39.0745039, -84.33211);
     }
 
     public static final Organization ORGANIZATION_1 = new Organization(ORGANIZATION_1_ID,
@@ -33,11 +38,6 @@ public class OrganizationTestData {
     );
 
     public static Organization getNewOrganization() {
-        Map<ContactType, String> contacts = new EnumMap<>(ContactType.class);
-        contacts.put(ContactType.URL, "https://new.org");
-        Organization newOrganization = new Organization("New Organization", "New Description", List.of(OrganizationCategory.BUSINESS), contacts);
-        Address address = new Address("New City", "new address", 1.0, 2.0, newOrganization);
-        newOrganization.addAddress(address);
-        return newOrganization;
+        return new Organization("New Organization", "New Description", Set.of(OrganizationCategory.BUSINESS));
     }
 }
