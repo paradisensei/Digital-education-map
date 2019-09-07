@@ -1,18 +1,15 @@
 package org.doit.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.BatchSize;
-import org.springframework.util.CollectionUtils;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.EnumSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 @Data
@@ -38,33 +35,20 @@ public class Organization {
     @BatchSize(size = 200)
     private Set<OrganizationCategory> categories;
 
-    @ElementCollection(fetch = FetchType.LAZY)
-    @CollectionTable(name = "contact", joinColumns = @JoinColumn(name = "organization_id"))
-    @MapKeyColumn(name = "type")
-    @MapKeyClass(ContactType.class)
-    @MapKeyEnumerated(EnumType.STRING)
-    @Column(name = "value")
-    @JsonIgnore
-    private Map<ContactType, String> contacts;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @JoinColumn(name = "organization_id")
+    @Fetch(FetchMode.SUBSELECT)
+    private List<Contact> contacts = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "organization", orphanRemoval = true)
-    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @JoinColumn(name = "organization_id")
+    @Fetch(FetchMode.SUBSELECT)
     private List<Address> addresses = new ArrayList<>();
 
-    public Organization(long id, String name, String description) {
-        this(name, description);
-        this.id = id;
-    }
-
-    public Organization(String name, String description) {
-        this(name, description, List.of(), Map.of());
-    }
-
-    public Organization(String name, String description, Collection<OrganizationCategory> categories, Map<ContactType, String> contacts) {
+    public Organization(String name, String description, Set<OrganizationCategory> categories) {
         this.name = name;
         this.description = description;
-        setCategories(categories);
-        setContacts(contacts);
+        this.categories = categories;
     }
 
     public Organization(Organization o) {
@@ -72,15 +56,7 @@ public class Organization {
         this.description = o.getDescription();
         this.categories = o.getCategories();
         this.contacts = o.getContacts();
-        this.addresses = o .getAddresses();
-    }
-
-    private void setCategories(Collection<OrganizationCategory> categories) {
-        this.categories = CollectionUtils.isEmpty(categories) ? EnumSet.noneOf(OrganizationCategory.class) : EnumSet.copyOf(categories);
-    }
-
-    public void addAddress(Address address) {
-        this.addresses.add(address);
+        this.addresses = o.getAddresses();
     }
 
     @Override
@@ -89,6 +65,5 @@ public class Organization {
         if (!(o instanceof Organization)) return false;
 
         return getId() == ((Organization) o).getId();
-
     }
 }

@@ -1,17 +1,10 @@
 package org.doit.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Access;
-import javax.persistence.AccessType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
@@ -32,8 +25,9 @@ public class Address {
 
     private Double longitude;
 
-    @ManyToOne
-    @JoinColumn(name = "organization_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "organization_id", referencedColumnName = "id", insertable = false, updatable = false)
+    @JsonIgnore
     private Organization organization;
 
     public Address(String city, String address, Double latitude, Double longitude) {
@@ -41,10 +35,5 @@ public class Address {
         this.address = address;
         this.latitude = latitude;
         this.longitude = longitude;
-    }
-
-    public Address(String city, String address, Double latitude, Double longitude, Organization organization) {
-        this(city, address, latitude, longitude);
-        this.organization = organization;
     }
 }

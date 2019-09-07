@@ -3,6 +3,9 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
     <changeSet author="vda" id="create sequences" context="all">
+        <createSequence sequenceName="contact_seq"
+                        incrementBy="1"
+                        startValue="1000"/>
         <createSequence sequenceName="address_seq"
                         incrementBy="1"
                         startValue="1000"/>

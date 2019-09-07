@@ -3,7 +3,7 @@ package org.doit.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.doit.model.Address;
-import org.doit.model.ContactType;
+import org.doit.model.Contact;
 import org.doit.model.Organization;
 
 import java.util.HashMap;
@@ -21,12 +21,11 @@ public class MapObject {
 
     public MapObject(List<Organization> organizations) {
         organizations.forEach(organization -> {
-            Map<ContactType, String> contacts = organization.getContacts();
             String organizationName = organization.getName();
             organization.getAddresses().forEach(address -> {
                 Map<String, String> properties = new HashMap<>();
                 properties.put("balloonContentHeader", String.format("<div class='balloonHeader'>%s</div>", organizationName));
-                properties.put("balloonContentBody", String.format("<div class='balloonBody'>%s</div>", getBalloonBodyHtml(contacts, address)));
+                properties.put("balloonContentBody", String.format("<div class='balloonBody'>%s</div>", getBalloonBodyHtml(organization.getContacts(), address)));
                 properties.put("hintContent", String.format("<div class='balloonHint'>%s</div>", organizationName));
                 features.add(new Feature(address.getId(), new Geometry("Point",
                         new Double[]{address.getLatitude(), address.getLongitude()}), properties));
@@ -34,16 +33,16 @@ public class MapObject {
         });
     }
 
-    private String getBalloonBodyHtml(Map<ContactType, String> contacts, Address address) {
+    private String getBalloonBodyHtml(List<Contact> contacts, Address address) {
         return String.format("<div class='balloonAddress'>%s %s</div><div class='balloonContacts'>%s</div>",
                 address.getCity(), address.getAddress(), getContactsHtml(contacts));
     }
 
-    private String getContactsHtml(Map<ContactType, String> contacts) {
+    private String getContactsHtml(List<Contact> contacts) {
         StringBuilder contactsHtml = new StringBuilder();
-        contacts.forEach((contactType, value) -> {
+        contacts.forEach(contact -> {
             String prefix;
-            switch (contactType) {
+            switch (contact.getType()) {
                 case PHONE:
                     prefix = "tel:";
                     break;
@@ -53,14 +52,14 @@ public class MapObject {
                 default:
                     prefix = "";
             }
-            contactsHtml.append(String.format("<div><a href='%s%s'>%s</a></div>", prefix, value, value));
+            contactsHtml.append(String.format("<div><a href='%s%2$s'>%2$s</a></div>", prefix, contact.getValue()));
         });
 
         return contactsHtml.toString();
     }
 
     @Data
-    private class Feature {
+    private static class Feature {
 
         private long id;
 
@@ -79,7 +78,7 @@ public class MapObject {
 
     @Data
     @AllArgsConstructor
-    private class Geometry {
+    private static class Geometry {
 
         private String type;
 

@@ -19,8 +19,8 @@ public class RestOrganizationController {
     }
 
     @GetMapping(value = "/rest/organizations")
-    public MapObject getAllWithAddressesAndContacts() {
-        return new MapObject(service.getAllWithAddressesAndContacts());
+    public MapObject getAll() {
+        return new MapObject(service.getAll());
     }
 
     @GetMapping("/rest/organization/{id}")
