@@ -36,9 +36,17 @@
                     </@security.authorize>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="место для">
-                    <input class="form-control mr-sm-2" type="text" placeholder="элементов фильтрации">
-                    <button class="btn btn-outline-success my-2 my-sm-0 disabled" type="submit" disabled>фильтровать</button>
+                    <label for="category" class="navbar-brand">Категория</label>
+                    <select class="form-control mr-sm-2" id="category" type="select"
+                            onchange="onCategoryChoice(this.value)">
+                        <option value="ALL">Все</option>
+                        <#list categories as category>
+                            <option value="${category}">${category.title}</option>
+                        </#list>
+                    </select>
+                    <label for="city" class="navbar-brand">Город</label>
+                    <input class="form-control mr-sm-2" id="city" type="text" placeholder="Город"
+                           oninput="onCityTyping(this.value)">
                 </form>
             </nav>
         </header>

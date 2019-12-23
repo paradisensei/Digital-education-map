@@ -1,5 +1,6 @@
 package org.doit.controller;
 
+import org.doit.model.OrganizationCategory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,7 @@ public class MainController {
     @GetMapping("/")
     public String home(Model model) {
         model.addAttribute("yandexKey", yandexKey);
+        model.addAttribute("categories", OrganizationCategory.values());
         return "/map/index";
     }
 }
