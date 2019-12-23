@@ -6,7 +6,7 @@ function init() {
     const myMap = new ymaps.Map(
         "map",
         {
-            center: [63, 85],
+            center: [65, 95],
             zoom: 4,
             controls: ['zoomControl'],
         },
@@ -19,8 +19,8 @@ function init() {
         // Чтобы метки начали кластеризоваться, выставляем опцию.
         clusterize: true,
         // ObjectManager принимает те же опции, что и кластеризатор.
-        gridSize: 32,
-        clusterDisableClickZoom: true,
+        gridSize: 64,
+        clusterDisableClickZoom: false,
     });
 
     // Чтобы задать опции одиночным объектам и кластерам,
@@ -48,11 +48,12 @@ function init() {
                     },
                     properties: {
                         'balloonContentHeader': `<div class='balloonHeader'>${name}</div>`,
-                        'balloonContentBody':
-                            `<div class='balloonBody'>
+                        'balloonContentBody': `<div class='balloonBody'>${description}</div>`,
+                        'balloonContentFooter':
+                            `<div class='balloonFooter'>
                                 <div class='balloonAddress'>${a.city} ${a.address}</div>
                                 <div class='balloonContacts'>
-                                    <div><a href='${contact}'>${contact}</a></div>
+                                    <a href='${contact}'>${contact}</a>
                                 </div>
                             </div>`,
                         'hintContent': `<div class='balloonHint'>${name}</div>`,

@@ -23,7 +23,7 @@
             <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
                 <a class="navbar-brand" href="/">
                     <img src="/resources/favicon.ico" width="30" height="30" class="d-inline-block align-top" alt="">
-                    Digital Education Map
+                    Карта цифрового образования
                 </a>
                 <ul class="navbar-nav mr-auto">
                     <@security.authorize access="isAuthenticated()">
@@ -56,7 +56,7 @@
 
         <footer class="footer fixed-bottom mt-auto py-1 bg-dark">
             <div class="container-fluid">
-                <span class="text-muted">&copy digital-education-map</span>
+                <span class="text-muted">&copy Карта цифрового образования</span>
             </div>
         </footer>
 
