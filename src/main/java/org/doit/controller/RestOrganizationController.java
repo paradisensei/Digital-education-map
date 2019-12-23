@@ -1,12 +1,13 @@
 package org.doit.controller;
 
-import org.doit.dto.MapObject;
 import org.doit.model.Organization;
 import org.doit.service.OrganizationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Collection;
 
 @RestController
 public class RestOrganizationController {
@@ -19,8 +20,8 @@ public class RestOrganizationController {
     }
 
     @GetMapping(value = "/rest/organizations")
-    public MapObject getAll() {
-        return new MapObject(service.getAll());
+    public Collection<Organization> getAll() {
+        return service.getAll();
     }
 
     @GetMapping("/rest/organization/{id}")

@@ -13,5 +13,4 @@ public interface OrganizationService {
     Organization get(long id);
 
     List<Organization> getAll();
-
 }

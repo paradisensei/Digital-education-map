@@ -25,11 +25,12 @@
                                  referencedTableName="organization"/>
     </changeSet>
 
-    <changeSet author="vda" id="constraint organization unique_name" context="all">
-        <addUniqueConstraint columnNames="name"
-                             constraintName="organization_unique_name"
-                             tableName="organization"/>
-    </changeSet>
+<!--    NOTE this constraint actually make sense, just temporarily disable for MVP-->
+<!--    <changeSet author="vda" id="constraint organization unique_name" context="all">-->
+<!--        <addUniqueConstraint columnNames="name"-->
+<!--                             constraintName="organization_unique_name"-->
+<!--                             tableName="organization"/>-->
+<!--    </changeSet>-->
 
     <changeSet author="vda" id="constraint user_roles unique_user_id_role" context="all">
         <addUniqueConstraint columnNames="user_id, role"

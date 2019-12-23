@@ -1,8 +1,8 @@
 ymaps.ready(init);
 
 function init() {
-    var myMap = new ymaps.Map("map", {
-            center: [66.25, 94.15],
+    const myMap = new ymaps.Map("map", {
+            center: [63, 85],
             zoom: 4,
             controls: ['zoomControl'],
         },
@@ -26,7 +26,38 @@ function init() {
 
     $.ajax({
         url: "/rest/organizations"
-    }).done(function (data) {
-        objectManager.add(data);
+    }).done(function (orgs) {
+        // array of geo objects
+        const features = [];
+        orgs.forEach(o => {
+            const { name, description } = o
+            // NOTE should support multiple contacts post-MVP
+            const contact = o.contacts[0].value
+            o.addresses.forEach(a => {
+                features.push({
+                    id: a.id,
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [a.latitude, a.longitude]
+                    },
+                    properties: {
+                        'balloonContentHeader': `<div class='balloonHeader'>${name}</div>`,
+                        'balloonContentBody':
+                            `<div class='balloonBody'>
+                                <div class='balloonAddress'>${a.city} ${a.address}</div>
+                                <div class='balloonContacts'>
+                                    <div><a href='${contact}'>${contact}</a></div>
+                                </div>
+                            </div>`,
+                        'hintContent': `<div class='balloonHint'>${name}</div>`
+                    }
+                })
+            })
+        })
+        objectManager.add({
+            type: 'FeatureCollection',
+            features
+        });
     });
 }
