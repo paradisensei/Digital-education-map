@@ -16,7 +16,7 @@
         <lombok.version>1.18.8</lombok.version>
 
         <!--DB-->
-        <postgresql.version>42.2.5</postgresql.version>
+        <postgresql.version>42.3.3</postgresql.version>
         <liquibase.version>3.5.3</liquibase.version>
 
         <!-- webjars -->
